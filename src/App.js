@@ -1,11 +1,16 @@
 import './App.css';
 
-function App() {
-  return (
-    <div>
+import Users from "./component/users/Users";
+import Comments from "./component/comments/Comments";
 
-    </div>
-  );
+function App() {
+    return (
+        <div>
+            <Users/>
+            <hr/>
+            <Comments/>
+        </div>
+    );
 }
 
 export default App;
