@@ -1,14 +1,25 @@
-import './App.css';
 import Users from "./components/users/Users";
-import SpaceX from "./components/spaceX/SpaceX";
+import {getUsersPosts} from "./services/user.service";
+import {useState} from "react";
+import Posts from "./components/posts/Posts";
 
-function App() {
-  return (
-    <div>
-      <Users/>
-      <SpaceX/>
-    </div>
-  );
+export default function App() {
+
+    let [post, setPost] = useState([]);
+
+    const list = (id) => {
+
+        getUsersPosts(id).then(({data}) => {
+
+            setPost([...data]);
+        })
+
+    }
+
+    return (<div>
+
+        <Users list={list}/>
+        <Posts post={post}/>
+
+    </div>);
 }
-
-export default App;
